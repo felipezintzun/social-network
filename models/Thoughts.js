@@ -61,4 +61,4 @@ ThoughtsSchema.virtual('replyCount').get(function() {
 
 const Thoughts = model('Thoughts', ThoughtsSchema);
 
-module.exports = Comment;
+module.exports = Thoughts;

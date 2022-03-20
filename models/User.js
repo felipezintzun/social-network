@@ -8,28 +8,29 @@ const UserSchema = new Schema(
       required: true,
       trim: true
     },
-    createdBy: {
+    email: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
+      unique: true
     },
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Thought'
+      }
+    ],
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }
+    ],
     createdAt: {
       type: Date,
       default: Date.now,
       get: (createdAtVal) => dateFormat(createdAtVal)
     },
-    size: {
-      type: String,
-      required: true,
-      enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
-      default: 'Large'
-    },
-    comments: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Comment'
-      }
-    ]
   },
   {
     toJSON: {
@@ -40,9 +41,9 @@ const UserSchema = new Schema(
   }
 );
 
-// get total count of thoughts and replies on retrieval
-UserSchema.virtual('thoughtCount').get(function() {
-  return this.thoughts.reduce((total, thought) => total + thought.replies.length + 1, 0);
+// get total count of friends
+UserSchema.virtual('friendCount').get(function() {
+  return this.friends.length;
 });
 
 // create the User model using the userSchema

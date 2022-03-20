@@ -5,7 +5,7 @@ const userController = {
   getAllUser(req, res) {
     User.find({})
       .populate({
-        path: 'thoguhts',
+        path: 'thoughts',
         select: '-__v'
       })
       .select('-__v')
@@ -51,6 +51,21 @@ const userController = {
       })
       .catch(err => res.status(400).json(err));
   },
+
+    // friends
+    updateFriend({ params, body }, res) {
+      User.findOneAndUpdate({ _id: params.id }, 
+        {$addToSet:{friends:params.friendsid}}
+        , { new: true })
+        .then(dbUserData => {
+          if (!dbUserData) {
+            res.status(404).json({ message: 'No user friend with this id!' });
+            return;
+          }
+          res.json(dbUserData);
+        })
+        .catch(err => res.status(400).json(err));
+    },
 
   // delete user
   deleteUser({ params }, res) {

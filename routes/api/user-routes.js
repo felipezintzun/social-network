@@ -16,11 +16,9 @@ router
   .get(getAllUser)
   .post(createUser);
 
-
 // friends
 router.route ("/:id/:friendsid")
   .put(updateFriend)
-
 
 // Set up GET one, PUT, and DELETE at /api/users/:id
 // /api/users/:id

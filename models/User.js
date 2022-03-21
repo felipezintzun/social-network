@@ -6,14 +6,22 @@ const UserSchema = new Schema(
     userName: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
+      unique: true
     },
     email: {
       type: String,
       required: true,
       trim: true,
-      unique: true
+      unique: true,
+      validate: {
+      validator: function(v) {
+        return /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(v)
+      }
     },
+    message: props => `${props.value} is not a valid email!` 
+   },
+
     thoughts: [
       {
         type: Schema.Types.ObjectId,

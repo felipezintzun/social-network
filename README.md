@@ -53,7 +53,7 @@ Install MongoDb.<br>
 
 ## Licenses
 
-![MIT License](https://img.shields.io/badge/license-MIT-important)
+![MIT License](https://img.shields.io/badge/license-MIT-important)<br>
 Permission to use this application is granted under the MIT license.
 For more information: [MIT License Information](https://opensource.org/licenses/MIT)
 

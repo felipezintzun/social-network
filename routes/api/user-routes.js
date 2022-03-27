@@ -18,7 +18,7 @@ router
   .post(createUser);
 
 // friends
-router.route ("/:id/:friendsid")
+router.route ("/:id/:friendsId")
 .post(addFriends)
 .delete(deleteFriends)
 // Set up GET one, PUT, and DELETE at /api/users/:id

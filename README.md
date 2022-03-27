@@ -48,8 +48,8 @@ Install MongoDb.<br>
 
 ## Walkthrough Videos
 
-- Walkthrough Video 1: []<br>
-- Walkthrough Video 2: []
+- Walkthrough Video 1: [https://www.youtube.com/watch?v=c3Yw6vYg8fo]<br>
+- Walkthrough Video 2: [https://www.youtube.com/watch?v=czSCX79OdHM]
 
 ## Licenses
 
